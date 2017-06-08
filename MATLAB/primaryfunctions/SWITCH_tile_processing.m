@@ -23,6 +23,9 @@ function keys = SWITCH_tile_processing(img)
         
         %Blurring is done inside the Harris keypoint detection code        
         res_vect = Harris3D(img, blur_size);
+        if length(res_vect) == 0
+            continue
+        end
 
         %Blurring is done outside the 3D Sift code
         h  = fspecial3('gaussian',blur_size); 
